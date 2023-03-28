@@ -51,7 +51,8 @@ input, button {
 }
 
 #add-task-input {
-    width: 50vw;
+    width: 50%;
+    min-width: 340px;
     padding: 1rem 1rem;
     font-size: 1rem;
     background-color: white;
@@ -69,7 +70,8 @@ input, button {
 }
 
 #add-task-submit {
-    width: 20vw;
+    width: 30%;
+    min-width: 230px;
     padding: 1rem 1rem;
     font-size: 1rem;
     background-image: linear-gradient(to right, var(--green), var(--yellow));
@@ -94,6 +96,7 @@ input, button {
     padding: 0;
     width: 100%;
     max-width: 80vh;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -106,7 +109,7 @@ input, button {
 
 #tasks .task {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     gap: 1rem;
     width: 100%;
@@ -115,24 +118,20 @@ input, button {
     border-color: var(--dark);
     padding: 1rem;
     background-color: var(--light);
+    margin-bottom: 1rem;
 }
 
 #tasks .task label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
 }
-
-#tasks .task input {
-    font-size: 1rem;
-}
-
 
 .circle {
     display: flex;
+    align-items:center;
     justify-content: center;
-    align-items: center;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -144,7 +143,7 @@ input, button {
     transition: 0.2s ease-out;
 }
 
-.circle:after {
+.circle::after {
     content: "";
     display: block;
     opacity: 0;
@@ -156,14 +155,20 @@ input, button {
 }
 
 
-input:checked ~ .circle:after {
+input:checked ~ .circle::after {
     width: 20px;
     height: 20px;
     opacity: 1;
 }
 
-#tasks .content .input {
-    color: var(--light);
+
+#tasks .task .content {
+    flex: 2;
+}
+
+#tasks .task input {
+    font-size: 1rem;
+    width: 100%;
 }
 
 #tasks .task .content .text {
@@ -184,17 +189,18 @@ input:checked ~ .circle:after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.7rem;
 }
 
 #tasks .task .actions .edit {
     color: var(--darkest);
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border-color: var(--darker);
     border-style: solid;
-    padding: 1rem;
+    border-width: 1.7px;
+    padding: 0.6rem;
     cursor: pointer;
     transition: 0.4s;
 }
@@ -207,10 +213,11 @@ input:checked ~ .circle:after {
     color: var(--red);
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border-color: var(--red);
     border-style: solid;
-    padding: 1rem;
+    border-width: 1.7px;
+    padding: 0.6rem;
     cursor: pointer;
     transition: 0.4s;
 }
@@ -225,3 +232,22 @@ input:checked ~ .circle:after {
 }
 
 
+@media only screen and (max-width: 549px) {
+    #tasks .task {
+        padding: 0.6rem;
+    }
+    #tasks .task .actions .edit {
+        font-size: 0.9rem;
+        border-radius: 0.3rem;
+        border-width: 1.2px;
+        padding: 0.3rem;
+    }
+
+    #tasks .task .actions .delete {
+        font-size: 0.9rem;
+        border-radius: 0.3rem;
+        border-width: 1.2px;
+        padding: 0.3rem;
+    }
+
+}
