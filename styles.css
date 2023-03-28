@@ -1,7 +1,7 @@
 :root {
-    --dark: #1b1c1a;
-    --darker: #4a4a48;
-    --darkest: #2b2b2a;
+    --darkest: #1b1c1a;
+    --dark: #4a4a48;
+    --darker: #2b2b2a;
     --light: #f2f2f2;
     --yellow: #ebeb36;
     --green: #91eb36;
@@ -19,12 +19,12 @@
 body {
     display: flex;
     flex-direction: column;
-    padding: 4rem 7rem;
+    padding: 3rem 2rem;
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
+    height: auto;
     font-size: 1rem;
-    background: var(--dark);
+    background: var(--darker);
     color: white;
 }
 
@@ -65,7 +65,7 @@ input, button {
 
 
 #add-task-input::placeholder {
-    color: var(--darker);
+    color: var(--darkest);
 }
 
 #add-task-submit {
@@ -104,14 +104,17 @@ input, button {
     margin-bottom: 2rem;
 }
 
-
 #tasks .task {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     width: 100%;
-
+    border-style: solid;
+    border-radius: 10px;
+    border-color: var(--dark);
+    padding: 1rem;
+    background-color: var(--light);
 }
 
 #tasks .task label {
@@ -119,6 +122,10 @@ input, button {
     justify-content: center;
     align-items: center;
 
+}
+
+#tasks .task input {
+    font-size: 1rem;
 }
 
 
@@ -155,6 +162,10 @@ input:checked ~ .circle:after {
     opacity: 1;
 }
 
+#tasks .content .input {
+    color: var(--light);
+}
+
 #tasks .task .content .text {
     background-image: linear-gradient(to right, var(--light), white);
     padding: 1rem;
@@ -163,7 +174,7 @@ input:checked ~ .circle:after {
     border-style: solid;
     border-color: var(--yellow);
     color: var(--darkest);
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: bolder;
     display: block;
     width: 40vw;
@@ -177,11 +188,11 @@ input:checked ~ .circle:after {
 }
 
 #tasks .task .actions .edit {
-    color: var(--yellow);
+    color: var(--darkest);
     font-size: 1rem;
     font-weight: bold;
     border-radius: 1rem;
-    border-color: var(--yellow);
+    border-color: var(--darker);
     border-style: solid;
     padding: 1rem;
     cursor: pointer;
@@ -192,7 +203,7 @@ input:checked ~ .circle:after {
     opacity: 0.8;
 }
 
-#tasks .task .actions .done {
+#tasks .task .actions .delete {
     color: var(--red);
     font-size: 1rem;
     font-weight: bold;
@@ -204,11 +215,11 @@ input:checked ~ .circle:after {
     transition: 0.4s;
 }
 
-#tasks .task .actions .done:hover {
+#tasks .task .actions .delete:hover {
     opacity: 0.8;
 }
 
-#tasks .task .actions .done:after {
+#tasks .task .actions .delete:after {
     background-color: var(--red);
     color: var(--light);
 }
