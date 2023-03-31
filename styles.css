@@ -162,6 +162,7 @@ input:checked ~ .circle::after {
 }
 
 
+
 #tasks .task .content {
     flex: 2;
 }
@@ -171,7 +172,7 @@ input:checked ~ .circle::after {
     width: 100%;
 }
 
-#tasks .task .content .text {
+#tasks .task .content .copy {
     background-image: linear-gradient(to right, var(--light), white);
     padding: 1rem;
     border-radius: 1rem;
@@ -234,7 +235,7 @@ input:checked ~ .circle::after {
 
 @media only screen and (max-width: 549px) {
     #tasks .task {
-        padding: 0.6rem;
+        padding: 0.8rem;
     }
     #tasks .task .actions .edit {
         font-size: 0.9rem;

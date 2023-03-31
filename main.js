@@ -48,7 +48,6 @@ function DisplayTodos() {
         input.type = 'checkbox';
         input.checked = todo.done;
         span.classList.add('circle');
-
         content.classList.add('content');
         actions.classList.add('actions');
         edit.classList.add('edit');
@@ -87,14 +86,15 @@ function DisplayTodos() {
             DisplayTodos();
         })
 
+
         //When the edit button is clicked, it removes the readonly attribute from the content div's input element and sets focus to it, allowing the user to edit the task's content. 
         edit.addEventListener('click', e => {
-            const input = content.querySelector('input');
-            input.removeAttribute('readonly');
-            input.focus();
+            const inputText = content.querySelector('input');
+            inputText.removeAttribute('readonly');
+            inputText.focus();
             //When the input loses focus, it sets the readonly attribute again, saves the new content to the task, and updates the todos array in local storage.
-            input.addEventListener('blur', e => {
-                input.setAttribute('readonly', true);
+            inputText.addEventListener('blur', e => {
+                inputText.setAttribute('readonly', true);
                 todo.content = e.target.value;
                 localStorage.setItem('todos', JSON.stringify(todos));
                 DisplayTodos();
